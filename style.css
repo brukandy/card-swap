@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    min-height: 100vh;
+    z-index: 2;
+}
+
+/* Left Content */
+.content-left {
+    max-width: 550px;
+    position: relative;
+    z-index: 2;
+    padding-top: 120px;
+}
+
+.content-wrapper {
+    position: relative;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    transition: all 0.5s ease;
+}
+
+.badge.business {
+    background: linear-gradient(135deg, #D4C5B0 0%, #E8DCC8 100%);
+    color: #1e3a8a;
+}
+
+.badge.crescita {
+    background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+    color: #1e3a8a;
+}
+
+.badge.immobiliare {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: #ffffff;
+}
+
+.badge.coaching {
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: #ffffff;
+}
+
+.title {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    transition: all 0.5s ease;
+}
+
+/* Dynamic font weights - Mixed styles */
+.title-light {
+    font-weight: 300;
+    font-style: normal;
+}
+
+.title-bold {
+    font-weight: 800;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+.title-italic {
+    font-weight: 400;
+    font-style: italic;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    transition: all 0.5s ease;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        0 12px 30px rgba(59, 130, 246, 0.5),
+        0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* CTA Button spacing */
+.cta-button {
+    margin-bottom: 20px;
+}
+
+/* Dots Navigation */
+.dots-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 1);
+    width: 32px;
+    border-radius: 5px;
+}
+
+/* Card Stack Container */
+.card-swap-container {
+    position: fixed;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%) translateX(5%);
+    width: 600px;
+    height: 600px;
+    perspective: 1200px;
+    overflow: visible;
+    z-index: 1;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 400px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.card-overlay h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Fade animations for content */
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .container {
+        padding: 60px 40px;
+    }
+
+    .title {
+        font-size: 48px;
+    }
+
+    .card-swap-container {
+        width: 400px;
+        height: 500px;
+    }
+
+    .card {
+        width: 400px;
+        height: 320px;
+    }
+}
+
+@media (max-width: 968px) {
+    .container {
+        padding: 40px 24px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .content-left {
+        max-width: 100%;
+        text-align: left;
+        padding-top: 40px;
+        z-index: 10;
+    }
+
+    .badge {
+        display: inline-block;
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .dots-nav {
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+
+    /* Show cards at bottom on mobile */
+    .card-swap-container {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: auto;
+        transform: none;
+        width: 100%;
+        height: 280px;
+        perspective: 800px;
+        z-index: 5;
+        display: block;
+        touch-action: pan-y;
+    }
+
+    .card {
+        width: 85%;
+        max-width: 350px;
+        height: 240px;
+        left: 50%;
+        top: 50%;
+        touch-action: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 24px 20px 20px;
+    }
+
+    .content-left {
+        padding-top: 20px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 5px 14px;
+        margin-bottom: 16px;
+    }
+
+    .title {
+        font-size: 26px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+    }
+
+    .cta-button {
+        padding: 14px 32px;
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .dots-nav {
+        justify-content: center;
+        margin-top: 0;
+    }
+
+    /* Cards at bottom - much closer */
+    .card-swap-container {
+        height: 240px;
+        padding-top: 20px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 320px;
+        height: 200px;
+    }
+
+    /* Swipe indicator */
+    .card-swap-container::before {
+        content: '← Swipe →';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 600;
+        letter-spacing: 2px;
+        z-index: 20;
+        animation: fadeInOut 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.7; }
+    }
+}

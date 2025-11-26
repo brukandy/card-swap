@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Swap - Leone Master School</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Content -->
+        <div class="content-left">
+            <div class="content-wrapper">
+                <span class="badge business" id="badge">Business</span>
+                <h1 class="title" id="title"><span class="title-light">Administration</span> <span class="title-bold">BUSINESS</span> <span class="title-italic">Management</span></h1>
+                <p class="description" id="description">Programma di Affiancamento con solo Docenti Mentori Imprenditori. Ricevi gli strumenti per avviare, crescere e automatizzare la tua attività conquistando così la libertà economica e di tempo.</p>
+                
+                <!-- CTA Button -->
+                <a href="#" class="cta-button" id="cta">Vai al programma</a>
+                
+                <!-- Dots Navigation -->
+                <div class="dots-nav">
+                    <button class="dot" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                    <button class="dot" data-index="3"></button>
+                    <button class="dot" data-index="4"></button>
+                    <button class="dot" data-index="5"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Card Stack -->
+        <div class="card-swap-container">
+            <!-- Card 1 - ABM -->
+            <div class="card" data-index="0" data-name="ABM">
+                <img src="images/management.png" alt="ABM">
+                <div class="card-overlay">
+                    <h3>ABM</h3>
+                </div>
+            </div>
+
+            <!-- Card 2 - Marketing Millionaire -->
+            <div class="card" data-index="1" data-name="Marketing Millionaire">
+                <img src="images/Marketing.png" alt="Marketing">
+                <div class="card-overlay">
+                    <h3>Marketing Millionaire</h3>
+                </div>
+            </div>
+
+            <!-- Card 3 - Sales Skills -->
+            <div class="card" data-index="2" data-name="Sales Skills">
+                <img src="images/Sales.png" alt="Sales">
+                <div class="card-overlay">
+                    <h3>Sales Skills</h3>
+                </div>
+            </div>
+
+            <!-- Card 4 - MEP -->
+            <div class="card" data-index="3" data-name="MEP">
+                <img src="images/MEP.png" alt="MEP">
+                <div class="card-overlay">
+                    <h3>MEP</h3>
+                </div>
+            </div>
+
+            <!-- Card 5 - Coach -->
+            <div class="card" data-index="4" data-name="Diventa Coach">
+                <img src="images/Diventa Coach.png" alt="Coach">
+                <div class="card-overlay">
+                    <h3>Diventa Coach</h3>
+                </div>
+            </div>
+
+            <!-- Card 6 - REM -->
+            <div class="card" data-index="5" data-name="Real Estate Master">
+                <img src="images/Rem.png" alt="REM">
+                <div class="card-overlay">
+                    <h3>Real Estate Master</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
