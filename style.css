@@ -418,3 +418,81 @@ body {
         50% { opacity: 0.7; }
     }
 }
+
+/* Mobile Landscape */
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        padding: 20px 40px 20px 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .content-left {
+        max-width: 50%;
+        text-align: left;
+        padding-top: 0;
+    }
+
+    .badge {
+        font-size: 10px;
+        padding: 4px 12px;
+        margin-bottom: 8px;
+    }
+
+    .title {
+        font-size: 20px;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+
+    .description {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .cta-button {
+        padding: 10px 24px;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .dots-nav {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .dot.active {
+        width: 24px;
+    }
+
+    /* Cards on right side in landscape */
+    .card-swap-container {
+        position: fixed;
+        right: -80px;
+        top: 50%;
+        bottom: auto;
+        left: auto;
+        transform: translateY(-50%);
+        width: 50%;
+        height: 400px;
+        padding-top: 0;
+    }
+
+    .card {
+        width: 280px;
+        height: 200px;
+    }
+
+    /* Hide swipe indicator in landscape */
+    .card-swap-container::before {
+        display: none;
+    }
+}
