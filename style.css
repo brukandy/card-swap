@@ -43,6 +43,27 @@ body {
     position: relative;
 }
 
+/* Section Header */
+.section-header {
+    margin-bottom: 32px;
+}
+
+.header-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    text-transform: none;
+}
+
+.header-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+}
+
 .badge {
     display: inline-block;
     padding: 8px 20px;
@@ -355,6 +376,18 @@ body {
 
     .content-left {
         padding-top: 20px;
+    }
+
+    .section-header {
+        margin-bottom: 24px;
+    }
+
+    .header-subtitle {
+        font-size: 13px;
+    }
+
+    .header-title {
+        font-size: 24px;
     }
 
     .badge {
