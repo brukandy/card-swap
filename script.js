@@ -97,24 +97,39 @@ function init() {
 // Create slot position
 function makeSlot(index) {
     const total = cards.length;
-    return {
-        x: index * config.cardDistance,
-        y: -index * config.verticalDistance,
-        z: -index * config.cardDistance * 1.5,
-        zIndex: total - index
-    };
+    const isMobilePortrait = window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+    
+    if (isMobilePortrait) {
+        // Mobile portrait: stack vertically centered (no horizontal offset)
+        return {
+            x: 0,
+            y: -index * 15, // Small vertical offset for stacking effect
+            z: -index * 30,
+            zIndex: total - index
+        };
+    } else {
+        // Desktop/landscape: diagonal stack
+        return {
+            x: index * config.cardDistance,
+            y: -index * config.verticalDistance,
+            z: -index * config.cardDistance * 1.5,
+            zIndex: total - index
+        };
+    }
 }
 
 // Place card at slot
 function placeCard(card, index) {
     const slot = makeSlot(index);
+    const isMobilePortrait = window.innerWidth <= 768 && window.innerHeight > window.innerWidth;
+    
     gsap.set(card, {
         x: slot.x,
         y: slot.y,
         z: slot.z,
         xPercent: -50,
         yPercent: -50,
-        skewY: config.skewAmount,
+        skewY: isMobilePortrait ? 0 : config.skewAmount, // No skew on mobile
         transformOrigin: 'center center',
         zIndex: slot.zIndex,
         force3D: true
