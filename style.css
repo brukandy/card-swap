@@ -419,16 +419,21 @@ body {
         margin-top: 0;
     }
 
-    /* Cards at bottom - much closer */
+    /* Cards at bottom - centered and stacked */
     .card-swap-container {
-        height: 240px;
+        height: 280px;
         padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .card {
-        width: 90%;
-        max-width: 320px;
-        height: 200px;
+        width: 85%;
+        max-width: 340px;
+        height: 220px;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     /* Swipe indicator */
