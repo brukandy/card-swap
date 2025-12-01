@@ -369,6 +369,34 @@ body {
     }
 }
 
+/* Mobile Portrait - Force complete card overlap */
+@media (max-width: 968px) and (orientation: portrait) {
+    .card-swap-container {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 300px !important;
+        padding-top: 40px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .card {
+        position: absolute !important;
+        width: 85% !important;
+        max-width: 340px !important;
+        height: 220px !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 24px 20px 10px;
