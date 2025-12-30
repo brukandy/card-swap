@@ -5,6 +5,7 @@ const programs = [
         badgeClass: 'business',
         title: '<span class="title-light">Administration</span> <span class="title-bold">BUSINESS</span> <span class="title-italic">Management</span>',
         description: 'Programma di Affiancamento con solo Docenti Mentori Imprenditori. Ricevi gli strumenti per avviare, crescere e automatizzare la tua attività conquistando così la libertà economica e di tempo.',
+        url: 'https://leonemasterschool.it/mbe-management-new/',
         cta: 'Vai al programma'
     },
     {
@@ -12,6 +13,7 @@ const programs = [
         badgeClass: 'business',
         title: '<span class="title-italic">Marketing</span> <span class="title-bold">MILLIONAIRE</span>',
         description: 'Programma di affiancamento marketing personalizzato per piccoli imprenditori e liberi professionisti. Impara a creare strategie commerciali per trasformare la tua comunicazione online in clienti fidelizzati.',
+        url: 'https://leonemasterschool.it/mbe-marketing-new-2/',
         cta: 'Vai al programma'
     },
     {
@@ -19,6 +21,7 @@ const programs = [
         badgeClass: 'business',
         title: '<span class="title-light">Sales</span> <span class="title-bold">SKILLS</span>',
         description: 'Programma di affiancamento di vendita etica con negoziatori professionisti. Ricevi strumenti, strategie pratiche ed aggiornate, per padroneggiare l\'arte della persuasione e vivere di abbondanza economica.',
+        url: 'https://leonemasterschool.it/mbe-sales-new/',
         cta: 'Vai al programma'
     },
     {
@@ -26,6 +29,7 @@ const programs = [
         badgeClass: 'crescita',
         title: '<span class="title-bold">MASTER</span> <span class="title-light">in</span> <span class="title-italic">Evoluzione Personale</span>',
         description: 'Programma di crescita personale con affiancamento individuale. Ricevi gli strumenti per rafforzare la tua autostima, gestire meglio emozioni, relazioni e soldi per essere pienamente soddisfatto.',
+        url: 'https://leonemasterschool.it/mep-3-new/',
         cta: 'Vai al programma'
     },
     {
@@ -33,6 +37,7 @@ const programs = [
         badgeClass: 'coaching',
         title: '<span class="title-italic">Diventa</span> <span class="title-bold">COACH</span> <span class="title-light">Certificato</span>',
         description: 'Programma di Life Coaching con affiancamento individuale. Lanciati come libero professionista grazie ad un programma pratico approvato ICF (International Coaching Federation) Global.',
+        url: 'https://leonemasterschool.it/diventa-coach-2-new/',
         cta: 'Vai al programma'
     },
     {
@@ -40,6 +45,7 @@ const programs = [
         badgeClass: 'immobiliare',
         title: '<span class="title-bold">REAL ESTATE</span> <span class="title-italic">Master</span>',
         description: 'Programma per fare operazioni immobiliari anche senza capitali con affiancamento individuale. Ricevi gli strumenti per crearti, anche da zero, una "professione indipendente ad alto reddito".',
+        url: 'https://leonemasterschool.it/rem-new/',
         cta: 'Vai al programma'
     }
 ];
@@ -160,6 +166,9 @@ function updateContent(index, animate = true) {
             title.innerHTML = program.title;
             description.textContent = program.description;
             cta.textContent = program.cta;
+            cta.href = program.url || '#';
+            cta.target = '_top';
+            cta.rel = 'noopener';
 
             // Fade in
             badge.classList.remove('fade-out');
@@ -186,6 +195,9 @@ function updateContent(index, animate = true) {
         title.innerHTML = program.title;
         description.textContent = program.description;
         cta.textContent = program.cta;
+        cta.href = program.url || '#';
+        cta.target = '_top';
+        cta.rel = 'noopener';
     }
 }
 
